@@ -1,0 +1,62 @@
+{
+  "_notice": "Synthetic example only. This file does not contain data from a real user or device.",
+  "SchemaVersion": "1.0",
+  "CollectedAtUtc": "2026-07-29T07:00:00.0000000Z",
+  "ComputerName": "DEMO-PC-014",
+  "UserContext": "CONTOSO\\demo.user",
+  "OperatingSystem": {
+    "Caption": "Microsoft Windows 11 Enterprise",
+    "Version": "10.0.26100",
+    "BuildNumber": "26100",
+    "Architecture": "64-bit",
+    "LastBootUpTime": "2026-07-27T08:30:00+02:00",
+    "UptimeHours": 46.5
+  },
+  "Hardware": {
+    "Manufacturer": "Demo Manufacturer",
+    "Model": "Business Laptop",
+    "Domain": "contoso.example",
+    "TotalPhysicalMemoryGB": 16.0
+  },
+  "Memory": {
+    "TotalGB": 15.7,
+    "FreeGB": 7.9,
+    "UsedPercent": 49.7
+  },
+  "Disks": [
+    {
+      "DeviceId": "C:",
+      "VolumeName": "Windows",
+      "SizeGB": 475.8,
+      "FreeGB": 182.4,
+      "FreePercent": 38.3,
+      "Status": "OK"
+    }
+  ],
+  "ActiveNetworkAdapters": [
+    {
+      "InterfaceAlias": "Wi-Fi",
+      "InterfaceDescription": "Demo Wireless Adapter",
+      "IPv4Address": ["192.0.2.14"],
+      "DefaultGateway": ["192.0.2.1"],
+      "DnsServers": ["192.0.2.53"]
+    }
+  ],
+  "Services": [
+    {
+      "Name": "Dnscache",
+      "DisplayName": "DNS Client",
+      "Status": "Running",
+      "StartType": "Auto"
+    }
+  ],
+  "PendingReboot": {
+    "Required": false,
+    "Checks": {
+      "ComponentBasedServicing": false,
+      "WindowsUpdate": false,
+      "PendingFileRename": false
+    }
+  },
+  "SystemEventSummary": null
+}
