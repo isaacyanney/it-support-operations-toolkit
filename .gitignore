@@ -1,0 +1,13 @@
+# Diagnostic output may contain machine-specific information
+output/
+*.diagnostics.json
+*.diagnostics.csv
+
+# PowerShell and editor files
+*.clixml
+.vscode/
+.idea/
+
+# Operating system
+.DS_Store
+Thumbs.db
