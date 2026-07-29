@@ -1,0 +1,49 @@
+name: PowerShell syntax validation
+
+on:
+  push:
+    paths:
+      - "**/*.ps1"
+      - ".github/workflows/powershell-syntax.yml"
+  pull_request:
+    paths:
+      - "**/*.ps1"
+      - ".github/workflows/powershell-syntax.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  syntax:
+    runs-on: windows-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Parse PowerShell scripts
+        shell: pwsh
+        run: |
+          $failed = $false
+
+          Get-ChildItem -Path . -Recurse -Filter *.ps1 | ForEach-Object {
+            $tokens = $null
+            $errors = $null
+            [System.Management.Automation.Language.Parser]::ParseFile(
+              $_.FullName,
+              [ref]$tokens,
+              [ref]$errors
+            ) | Out-Null
+
+            if ($errors.Count -gt 0) {
+              $failed = $true
+              Write-Error "Syntax errors in $($_.FullName)"
+              $errors | ForEach-Object { Write-Error $_.Message }
+            }
+            else {
+              Write-Host "Syntax OK: $($_.FullName)"
+            }
+          }
+
+          if ($failed) {
+            exit 1
+          }
