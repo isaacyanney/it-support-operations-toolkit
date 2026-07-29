@@ -1,5 +1,7 @@
 # IT Support Operations Toolkit
 
+[![PowerShell syntax validation](https://github.com/isaacyanney/it-support-operations-toolkit/actions/workflows/powershell-syntax.yml/badge.svg)](https://github.com/isaacyanney/it-support-operations-toolkit/actions/workflows/powershell-syntax.yml)
+
 A practical portfolio project demonstrating repeatable service-desk and desktop-support work: Windows health collection, network fault isolation, incident triage, user lifecycle controls and professional ticket documentation.
 
 The project is designed around a core support principle: **collect evidence first, make the fault domain visible, document every meaningful action, and escalate with useful context.**
