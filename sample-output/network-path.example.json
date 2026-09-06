@@ -1,0 +1,32 @@
+{
+  "_notice": "Synthetic example only. This file does not contain data from a real user, device or network.",
+  "SchemaVersion": "1.0",
+  "TestedAtUtc": "2026-07-29T07:05:00.0000000Z",
+  "ComputerName": "DEMO-PC-014",
+  "Target": "login.microsoftonline.com",
+  "Port": 443,
+  "ActiveInterfaces": [
+    {
+      "InterfaceAlias": "Wi-Fi",
+      "IPv4Address": ["192.0.2.14"],
+      "DnsServers": ["192.0.2.53"]
+    }
+  ],
+  "DefaultGateways": [
+    {
+      "Gateway": "192.0.2.1",
+      "Reachable": true
+    }
+  ],
+  "DnsResolution": {
+    "Success": true,
+    "Addresses": ["198.51.100.20"],
+    "Error": null
+  },
+  "TcpTest": {
+    "RemoteAddress": "198.51.100.20",
+    "SourceAddress": "192.0.2.14",
+    "TcpTestSucceeded": true
+  },
+  "SuggestedFocus": "Connectivity test passed"
+}

@@ -1,20 +1,22 @@
-name: PowerShell syntax validation
+name: Repository validation
 
 on:
   push:
     paths:
       - "**/*.ps1"
+      - "sample-output/**/*.json"
       - ".github/workflows/powershell-syntax.yml"
   pull_request:
     paths:
       - "**/*.ps1"
+      - "sample-output/**/*.json"
       - ".github/workflows/powershell-syntax.yml"
 
 permissions:
   contents: read
 
 jobs:
-  syntax:
+  validate:
     runs-on: windows-latest
     steps:
       - name: Check out repository
@@ -46,4 +48,12 @@ jobs:
 
           if ($failed) {
             exit 1
+          }
+
+      - name: Validate synthetic JSON examples
+        shell: pwsh
+        run: |
+          Get-ChildItem -Path sample-output -Filter *.json | ForEach-Object {
+            Get-Content -Raw $_.FullName | ConvertFrom-Json | Out-Null
+            Write-Host "JSON OK: $($_.FullName)"
           }
