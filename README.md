@@ -31,7 +31,8 @@ it-support-operations-toolkit/
 ├── templates/
 │   └── ticket-note.md
 ├── sample-output/
-│   └── workstation-health.example.json
+│   ├── workstation-health.example.json
+│   └── network-path.example.json
 ├── .github/workflows/
 │   └── powershell-syntax.yml
 ├── .gitignore
@@ -100,7 +101,10 @@ flowchart TD
 - [Incident triage runbook](runbooks/incident-triage.md) — scope, priority, fault-domain checks, documentation and escalation
 - [Onboarding/offboarding runbook](runbooks/onboarding-offboarding.md) — identity, access, device, asset and data controls
 - [Ticket note template](templates/ticket-note.md) — symptoms, impact, evidence, actions, communication and closure
-- [Synthetic diagnostic example](sample-output/workstation-health.example.json) — demonstrates the output schema without exposing real device or user data
+- [Synthetic workstation example](sample-output/workstation-health.example.json) — demonstrates the health-report schema
+- [Synthetic network-path example](sample-output/network-path.example.json) — demonstrates a successful gateway, DNS and TCP-path result
+
+Both examples use documentation-only address ranges and contain no real user, device or network data.
 
 ## Safety and data handling
 
@@ -113,7 +117,14 @@ flowchart TD
 
 ## Validation
 
-A GitHub Actions workflow parses every `.ps1` file on Windows after relevant pushes and pull requests. This catches PowerShell syntax errors without executing workstation diagnostics.
+A GitHub Actions workflow parses every `.ps1` file on Windows and validates every synthetic JSON example after relevant pushes and pull requests. This catches syntax and evidence-file formatting errors without executing workstation diagnostics.
+
+**Current evidence status**
+
+- Source code is publicly reviewable.
+- PowerShell syntax and sample JSON are checked automatically.
+- Example outputs are synthetic and safe to share.
+- The scripts are designed for Windows; functional execution should be performed only on an authorised test workstation.
 
 ## Possible next iterations
 
